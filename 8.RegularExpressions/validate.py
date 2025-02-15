@@ -169,12 +169,78 @@ Example of an invalid email:
 
 The script ensures that the email address must end with `.edu` to be considered valid.
 """
+# []: match any character inside the square brackets
+# [^]: match any character not inside the square brackets
+# [^@]: match any character that is not @
+# import re
+# email = input("Whats your email? ").strip()
 
+# if re.search(r"^[^@]+@[^@]+\.edu$",email):
+#     print("Valid")
+
+# else:
+#     print("Invalid")
+
+
+
+
+# import re
+# email = input("Whats your email? ").strip()
+
+# if re.search(r"^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.edu$",email):
+#     print("Valid")
+
+# else:
+#     print("Invalid")
+    
+
+#we can get ride of the entire [a-zA-Z0-9_] by using \w
+# \w: match any alphanumeric character and underscore
+
+# import re
+# email = input("Whats your email? ").strip()
+
+# if re.search(r"^\w+@\w+\.edu$",email):
+#       print("Valid")
+# else:
+#       print("Invalid")
+
+
+#  \d: match any digit
+#  \D: match any non-digit
+#  \s: match any white space
+#  \S: match any non white space
+#  \b: match word boundaries
+#  \B: match non-word boundaries
+#  \A: match beginning of string
+#  \Z: match end of string
+#  \w: match any alphanumeric character and underscore
+
+
+# if I want to accept .edu, .com, .net, .org
+# import re
+
+# email = input("Enter your email: ").strip()
+
+# if re.search(r"^\w+@\w+\.(edu|com|net|org)$", email):
+#     print("Valid")
+# else:
+#       print("Invalid")
+
+
+#if we want the domain to be case insensitive
+# re.IGNORECASE or re.I: ignore case
 import re
-email = input("Whats your email? ").strip()
 
-if re.search(r".+@.+\.edu",email):
-    print("Valid")
+email = input("Enter your email: ").strip()
+
+if re.search(r"^\w+@\w+\.(edu|com|net|org)$", email, re.IGNORECASE):
+      print("Valid")
 
 else:
-    print("Invalid")
+      print("Invalid")
+
+
+#re.MULTILINE or re.M: treat beginning and end characters (^ and $) as working for each line
+#re.VERBOSE or re.X: allows for comments and whitespace in the pattern
+#re.DOTALL or re.S: make the . match any character, including newlines
