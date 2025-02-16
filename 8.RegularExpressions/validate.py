@@ -230,17 +230,43 @@ The script ensures that the email address must end with `.edu` to be considered 
 
 #if we want the domain to be case insensitive
 # re.IGNORECASE or re.I: ignore case
-import re
+# import re
 
-email = input("Enter your email: ").strip()
+# email = input("Enter your email: ").strip()
 
-if re.search(r"^\w+@\w+\.(edu|com|net|org)$", email, re.IGNORECASE):
-      print("Valid")
+# if re.search(r"^\w+@\w+\.(edu|com|net|org)$", email, re.IGNORECASE):
+#       print("Valid")
 
-else:
-      print("Invalid")
+# else:
+#       print("Invalid")
 
 
 #re.MULTILINE or re.M: treat beginning and end characters (^ and $) as working for each line
 #re.VERBOSE or re.X: allows for comments and whitespace in the pattern
 #re.DOTALL or re.S: make the . match any character, including newlines
+
+
+
+# import re
+
+# email = input("Enter your email: ").strip()
+
+# if re.search(r"^\w+@\w+\.\w+\.(edu|com|net|org)$", email, re.IGNORECASE):
+#       print("Valid")
+
+# else:
+      # print("Invalid")
+
+
+#the above code will only work for emails that have two domains, 
+#hence an email malan@harvard.edu will be invalid
+#to fix this we can use the following code
+import re
+
+email = input("Enter your email: ").strip()
+
+if re.search(r"^\w+@(\w+\.)?\w+\.(edu|com|net|org)$", email, re.IGNORECASE):
+      print("Valid")
+
+else:
+      print("Invalid")
