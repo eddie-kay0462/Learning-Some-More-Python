@@ -1,8 +1,6 @@
 class Student:
     #dunder method, constructor. It is called when an object is created
     def __init__(self, name, house):
-        if not name:
-            raise ValueError("Name is required!!")
         self.name = name
         self.house = house
     
@@ -10,6 +8,18 @@ class Student:
     ##dunder method, called when we print the object
     def __str__(self):
         return f"{self.name} from {self.house}"
+
+    ##getter for name
+    @property
+    def name(self):
+        return self._name
+
+    ##setter for name
+    @name.setter
+    def name(self, name):
+        if not name:
+            raise ValueError("Name is required!!")
+        self._name = name
 
     ##getter method
     @property #this is a decorator. It is used to define a property in a class. It allows us to access the method as an attribute
@@ -38,4 +48,3 @@ def get_student():
 
 if __name__ == "__main__":
     main()
-
